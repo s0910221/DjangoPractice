@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block title %}New Posts{% endblock title %}
+{% block main %}
+    <a class="btn btn-outline-warning" href="{% url 'posts:index' %}">back</a>
+    <h1>New</h1>
+    <hr>
+    {% include "_form.html" %}
+{% endblock main %}

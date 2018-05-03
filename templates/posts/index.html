@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>dddd</h1>
+{% extends "layout.html" %}
+{% block title %}Posts{% endblock title %}
+{% block main %}
+    <h1>Posts</h1>
+    <a class="btn btn-outline-primary" href="{% url 'posts:new' %}">New Posts</a>
+    <hr>
     {% for post in posts %}
-    <!-- <a href="/posts/{{post.id}}/">{{post.id}} </a> -->
-    <a href="{% url 'posts_show' post.id %}">{{post.id}} </a>
-    <span> | {{post.title}} - {{post.content}}</span>
-    <br> {% endfor %}
-</body>
-
-</html>
+        <!-- <a href="/posts/{{post.id}}/">{{post.id}} </a> -->
+        <a class="btn btn-outline-info" href="{% url 'posts:show' post.id %}">{{post.id}} </a>
+        <span> | {{post.title}} - {{post.content}}</span>
+        <a class="btn btn-outline-danger" href="{% url 'posts:delete' post.id %}">delete</a>
+        <br>
+    {% endfor %}
+{% endblock main %}

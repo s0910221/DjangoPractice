@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>dddd</h1>
+{% extends "layout.html" %}
+{% block title %}Show Posts{% endblock title %}
+{% block main %}
+    <h1>Show</h1>
+    <a class="btn btn-outline-info" href="{% url 'posts:edit' post.id %}">edit</a>
     <span>{{post.id}} - {{post.title}} - {{post.content}}</span><br>
-</body>
-</html>
+    <a class="btn btn-outline-warning" href="{% url 'posts:index' %}">back</a>
+{% endblock main %}
